@@ -109,14 +109,6 @@
 				86D8BC4221902EA900064494 /* AppDelegate.h */,
 				86D8BC4321902EA900064494 /* AppDelegate.m */,
 				86D8BC79219060DB00064494 /* Class */,
-				86D8BC612190351900064494 /* VisitViewController.h */,
-				86D8BC622190351900064494 /* VisitViewController.m */,
-				86D8BC642190352B00064494 /* MerchantViewController.h */,
-				86D8BC652190352B00064494 /* MerchantViewController.m */,
-				86D8BC6A2190354B00064494 /* MineViewController.h */,
-				86D8BC6B2190354B00064494 /* MineViewController.m */,
-				86D8BC6D2190355900064494 /* MoreViewController.h */,
-				86D8BC6E2190355900064494 /* MoreViewController.m */,
 				86D8BC4821902EA900064494 /* Main.storyboard */,
 				86D8BC4B21902EAA00064494 /* Assets.xcassets */,
 				86D8BC4D21902EAA00064494 /* LaunchScreen.storyboard */,
@@ -129,6 +121,14 @@
 		86D8BC79219060DB00064494 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				86D8BC612190351900064494 /* VisitViewController.h */,
+				86D8BC622190351900064494 /* VisitViewController.m */,
+				86D8BC642190352B00064494 /* MerchantViewController.h */,
+				86D8BC652190352B00064494 /* MerchantViewController.m */,
+				86D8BC6A2190354B00064494 /* MineViewController.h */,
+				86D8BC6B2190354B00064494 /* MineViewController.m */,
+				86D8BC6D2190355900064494 /* MoreViewController.h */,
+				86D8BC6E2190355900064494 /* MoreViewController.m */,
 				86D8BC7B2190611600064494 /* Home */,
 				86D8BC7A219060E500064494 /* Mian */,
 			);
@@ -234,12 +234,9 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan-resources.sh",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -442,7 +439,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49HJAMKD2L;
 				INFOPLIST_FILE = LJMeituan/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = af.LJMeituan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,7 +457,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49HJAMKD2L;
 				INFOPLIST_FILE = LJMeituan/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = af.LJMeituan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
