@@ -21,9 +21,11 @@
 		86D8BC6F2190355900064494 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BC6E2190355900064494 /* MoreViewController.m */; };
 		86D8BC752190589F00064494 /* LJTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BC742190589F00064494 /* LJTabButton.m */; };
 		86D8BC7821905C0B00064494 /* LJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BC7721905C0B00064494 /* LJNavigationController.m */; };
+		F9F4FC37E6C73720587FC018 /* libPods-LJMeituan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F15353852689CF4F7EFF79 /* libPods-LJMeituan.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A11ACCB0EC9632561EF3CCE /* Pods-LJMeituan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LJMeituan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan.debug.xcconfig"; sourceTree = "<group>"; };
 		86D8BC3F21902EA900064494 /* LJMeituan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJMeituan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8BC4221902EA900064494 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86D8BC4321902EA900064494 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,6 +52,8 @@
 		86D8BC742190589F00064494 /* LJTabButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJTabButton.m; sourceTree = "<group>"; };
 		86D8BC7621905C0B00064494 /* LJNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJNavigationController.h; sourceTree = "<group>"; };
 		86D8BC7721905C0B00064494 /* LJNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJNavigationController.m; sourceTree = "<group>"; };
+		ACF7D18477266B9A10F285A8 /* Pods-LJMeituan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LJMeituan.release.xcconfig"; path = "Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan.release.xcconfig"; sourceTree = "<group>"; };
+		E4F15353852689CF4F7EFF79 /* libPods-LJMeituan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LJMeituan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +61,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F4FC37E6C73720587FC018 /* libPods-LJMeituan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EFF67623EA11850FDF58C1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4F15353852689CF4F7EFF79 /* libPods-LJMeituan.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71D9C52727DFE7BC1A33B591 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A11ACCB0EC9632561EF3CCE /* Pods-LJMeituan.debug.xcconfig */,
+				ACF7D18477266B9A10F285A8 /* Pods-LJMeituan.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		86D8BC3621902EA900064494 = {
 			isa = PBXGroup;
 			children = (
 				86D8BC4121902EA900064494 /* LJMeituan */,
 				86D8BC4021902EA900064494 /* Products */,
+				71D9C52727DFE7BC1A33B591 /* Pods */,
+				3EFF67623EA11850FDF58C1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,9 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86D8BC5521902EAA00064494 /* Build configuration list for PBXNativeTarget "LJMeituan" */;
 			buildPhases = (
+				CFB5827AA05EECCE578C4F9A /* [CP] Check Pods Manifest.lock */,
 				86D8BC3B21902EA900064494 /* Sources */,
 				86D8BC3C21902EA900064494 /* Frameworks */,
 				86D8BC3D21902EA900064494 /* Resources */,
+				C9B4B53647B456F75A87E234 /* [CP] Embed Pods Frameworks */,
+				1E91DB8262D1BE1C61EF249A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +226,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E91DB8262D1BE1C61EF249A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9B4B53647B456F75A87E234 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFB5827AA05EECCE578C4F9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LJMeituan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86D8BC3B21902EA900064494 /* Sources */ = {
@@ -355,15 +436,13 @@
 		};
 		86D8BC5621902EAA00064494 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A11ACCB0EC9632561EF3CCE /* Pods-LJMeituan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49HJAMKD2L;
 				INFOPLIST_FILE = LJMeituan/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = af.LJMeituan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -372,15 +451,13 @@
 		};
 		86D8BC5721902EAA00064494 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACF7D18477266B9A10F285A8 /* Pods-LJMeituan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49HJAMKD2L;
 				INFOPLIST_FILE = LJMeituan/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = af.LJMeituan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
