@@ -7,8 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "MenuViewController.h"
 
 @interface HomeViewController ()
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -16,17 +19,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"详情" style:UIBarButtonItemStylePlain target:self action:@selector(nextAction)];
+    
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// 详情
+- (void)nextAction {
+    
+    MenuViewController *menuVc = [[MenuViewController alloc]init];
+    
+    [self.navigationController pushViewController:menuVc animated:YES];
+    
 }
-*/
+
+#pragma mark -- 创建tableView
+- (void)setupTableView {
+
+}
+
+
 
 @end
