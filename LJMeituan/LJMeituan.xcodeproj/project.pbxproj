@@ -40,6 +40,12 @@
 		86D8BCB421918EB400064494 /* NSString+SYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCB321918EB300064494 /* NSString+SYExtension.m */; };
 		86D8BCB721919ADB00064494 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCB621919AD900064494 /* UIColor+FlatUI.m */; };
 		86D8BCBA2192769E00064494 /* CouponCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCB92192769E00064494 /* CouponCollectionViewCell.m */; };
+		86D8BCC02193D0B900064494 /* LJShopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCBF2193D0B900064494 /* LJShopScrollView.m */; };
+		86D8BCC42193D5F300064494 /* DisPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCC22193D5F300064494 /* DisPlayViewController.m */; };
+		86D8BCC72193D6B300064494 /* LJFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCC52193D6B100064494 /* LJFlowLayout.m */; };
+		86D8BCCA2193E0ED00064494 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCC92193E0EC00064494 /* TableViewController.m */; };
+		86D8BCCD2193E14C00064494 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCCC2193E14B00064494 /* BaseTableViewController.m */; };
+		86D8BCD02193E2EB00064494 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BCCF2193E2EB00064494 /* ChildViewController.m */; };
 		F9F4FC37E6C73720587FC018 /* libPods-LJMeituan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F15353852689CF4F7EFF79 /* libPods-LJMeituan.a */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +117,18 @@
 		86D8BCB621919AD900064494 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		86D8BCB82192769E00064494 /* CouponCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CouponCollectionViewCell.h; path = ../../../../../../../../Documents/CouponCollectionViewCell.h; sourceTree = "<group>"; };
 		86D8BCB92192769E00064494 /* CouponCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CouponCollectionViewCell.m; path = ../../../../../../../../Documents/CouponCollectionViewCell.m; sourceTree = "<group>"; };
+		86D8BCBE2193D0B900064494 /* LJShopScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJShopScrollView.h; sourceTree = "<group>"; };
+		86D8BCBF2193D0B900064494 /* LJShopScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJShopScrollView.m; sourceTree = "<group>"; };
+		86D8BCC22193D5F300064494 /* DisPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisPlayViewController.m; sourceTree = "<group>"; };
+		86D8BCC32193D5F300064494 /* DisPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisPlayViewController.h; sourceTree = "<group>"; };
+		86D8BCC52193D6B100064494 /* LJFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJFlowLayout.m; sourceTree = "<group>"; };
+		86D8BCC62193D6B200064494 /* LJFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJFlowLayout.h; sourceTree = "<group>"; };
+		86D8BCC82193E0EC00064494 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		86D8BCC92193E0EC00064494 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		86D8BCCB2193E14B00064494 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		86D8BCCC2193E14B00064494 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		86D8BCCE2193E2EB00064494 /* ChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
+		86D8BCCF2193E2EB00064494 /* ChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
 		ACF7D18477266B9A10F285A8 /* Pods-LJMeituan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LJMeituan.release.xcconfig"; path = "Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan.release.xcconfig"; sourceTree = "<group>"; };
 		E4F15353852689CF4F7EFF79 /* libPods-LJMeituan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LJMeituan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -227,10 +245,15 @@
 		86D8BC802191388000064494 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				86D8BCC12193D5E600064494 /* productList */,
 				86D8BC81219138B700064494 /* TakeawayShopView.h */,
 				86D8BC82219138B700064494 /* TakeawayShopView.m */,
 				86D8BCB82192769E00064494 /* CouponCollectionViewCell.h */,
 				86D8BCB92192769E00064494 /* CouponCollectionViewCell.m */,
+				86D8BCBE2193D0B900064494 /* LJShopScrollView.h */,
+				86D8BCBF2193D0B900064494 /* LJShopScrollView.m */,
+				86D8BCCE2193E2EB00064494 /* ChildViewController.h */,
+				86D8BCCF2193E2EB00064494 /* ChildViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +311,21 @@
 				86D8BCB02191700300064494 /* FXBlurView.m */,
 			);
 			path = FXBlurView;
+			sourceTree = "<group>";
+		};
+		86D8BCC12193D5E600064494 /* productList */ = {
+			isa = PBXGroup;
+			children = (
+				86D8BCCB2193E14B00064494 /* BaseTableViewController.h */,
+				86D8BCCC2193E14B00064494 /* BaseTableViewController.m */,
+				86D8BCC82193E0EC00064494 /* TableViewController.h */,
+				86D8BCC92193E0EC00064494 /* TableViewController.m */,
+				86D8BCC62193D6B200064494 /* LJFlowLayout.h */,
+				86D8BCC52193D6B100064494 /* LJFlowLayout.m */,
+				86D8BCC32193D5F300064494 /* DisPlayViewController.h */,
+				86D8BCC22193D5F300064494 /* DisPlayViewController.m */,
+			);
+			path = productList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,19 +462,25 @@
 				86D8BCA4219144F400064494 /* UIButton+CZAddition.m in Sources */,
 				86D8BCA0219144F400064494 /* UIScreen+CZAddition.m in Sources */,
 				86D8BCA2219144F400064494 /* NSString+CZBase64.m in Sources */,
+				86D8BCC42193D5F300064494 /* DisPlayViewController.m in Sources */,
 				86D8BCA1219144F400064494 /* UILabel+CZAddition.m in Sources */,
+				86D8BCC72193D6B300064494 /* LJFlowLayout.m in Sources */,
 				86D8BC632190351900064494 /* VisitViewController.m in Sources */,
+				86D8BCD02193E2EB00064494 /* ChildViewController.m in Sources */,
 				86D8BC6C2190354B00064494 /* MineViewController.m in Sources */,
 				86D8BCA7219144F400064494 /* NSString+CZHash.m in Sources */,
 				86D8BC4421902EA900064494 /* AppDelegate.m in Sources */,
 				86D8BC7821905C0B00064494 /* LJNavigationController.m in Sources */,
 				86D8BCA6219144F400064494 /* UIViewController+CZAddition.m in Sources */,
 				86D8BCBA2192769E00064494 /* CouponCollectionViewCell.m in Sources */,
+				86D8BCC02193D0B900064494 /* LJShopScrollView.m in Sources */,
 				86D8BC662190352B00064494 /* MerchantViewController.m in Sources */,
+				86D8BCCA2193E0ED00064494 /* TableViewController.m in Sources */,
 				86D8BC5D219031C000064494 /* LJTabBar.m in Sources */,
 				86D8BC83219138B700064494 /* TakeawayShopView.m in Sources */,
 				86D8BC9F219144F400064494 /* UIView+CZAddition.m in Sources */,
 				86D8BC7F2191362800064494 /* MenuViewController.m in Sources */,
+				86D8BCCD2193E14C00064494 /* BaseTableViewController.m in Sources */,
 				86D8BCA3219144F400064494 /* NSString+CZPath.m in Sources */,
 				86D8BC5A21902F3800064494 /* LJMainViewController.m in Sources */,
 				86D8BCB421918EB400064494 /* NSString+SYExtension.m in Sources */,
