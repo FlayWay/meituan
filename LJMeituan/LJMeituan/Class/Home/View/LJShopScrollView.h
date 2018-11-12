@@ -11,7 +11,14 @@
 
 @protocol LJShopScrollViewDelegate <NSObject>
 
+// 点击顶部视图，让该视图平移向下消失
 - (void)ListScrollViewDropDown:(LJShopScrollView *)shopView;
+// 监听偏移量
+- (void)listScrollViewDidScrollView:(LJShopScrollView *)shopView tableViewOffsetY:(CGFloat)offSetY;
+// 偏移结束
+- (void)listScrollViewDidEndScrollView:(LJShopScrollView *)shopView tableViewOffsetY:(CGFloat)offSetY;
+// 向上偏移
+- (void)listScrollViewDidUpScrollView:(LJShopScrollView *)shopView tableViewOffsetY:(CGFloat)offSetY;
 
 @end
 
@@ -20,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LJShopScrollView : UIScrollView
 
 @property (nonatomic, strong) UIViewController *vc;
-@property (nonatomic, weak) id<LJShopScrollViewDelegate> delegate;
+@property (nonatomic, weak) id<LJShopScrollViewDelegate> scrollDelegate;
 
 - (instancetype)initWithFrame:(CGRect)frame withVC:(UIViewController *)vc;
 

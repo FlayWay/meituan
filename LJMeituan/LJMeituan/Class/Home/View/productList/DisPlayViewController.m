@@ -172,6 +172,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollDownAction:) name:KNotificationScrollDown object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollEndAction:) name:KNotificationScrollEnd object:nil];
+    
+}
+
+#pragma mark ---- tableView 滑动事件
+- (void)tableViewScrollDownAction:(NSNotification *)noti {
+    
+    NSDictionary * infoDic = [noti object];
+    
+    NSLog(@"====%s====%@",__func__,infoDic[@"tableScrollOffY"]);
+    NSString *offSetY = infoDic[@"tableScrollOffY"];
+    self.contentScrollView.scrollEnabled = NO;
+}
+
+- (void)tableViewScrollEndAction:(NSNotification *)noti {
+    
+    NSDictionary * infoDic = [noti object];
+    NSString *offSetY = infoDic[@"tableScrollOffY"];
+    self.contentScrollView.scrollEnabled = YES;
+    
 }
 
 
@@ -487,6 +509,8 @@
     
     // 记录上一次的偏移量
     _lastOffsetX = offsetX;
+
+    
 }
 
 #pragma mark --- 字体变化
