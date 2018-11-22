@@ -172,30 +172,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollDownAction:) name:KNotificationScrollDown object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollEndAction:) name:KNotificationScrollEnd object:nil];
-    
 }
-
-#pragma mark ---- tableView 滑动事件
-- (void)tableViewScrollDownAction:(NSNotification *)noti {
-    
-    NSDictionary * infoDic = [noti object];
-    
-    NSLog(@"====%s====%@",__func__,infoDic[@"tableScrollOffY"]);
-    NSString *offSetY = infoDic[@"tableScrollOffY"];
-    self.contentScrollView.scrollEnabled = NO;
-}
-
-- (void)tableViewScrollEndAction:(NSNotification *)noti {
-    
-    NSDictionary * infoDic = [noti object];
-    NSString *offSetY = infoDic[@"tableScrollOffY"];
-    self.contentScrollView.scrollEnabled = YES;
-    
-}
-
 
 /**
  设置所有标题
@@ -290,7 +267,6 @@
     CGFloat contentScrollY = CGRectGetMaxY(self.titleScrollView.frame);
     CGFloat contentScrollH = _contentView.height - contentScrollY;
     self.contentScrollView.frame = CGRectMake(0, contentScrollY, self.view.width, contentScrollH);
-    self.contentScrollView.backgroundColor = [UIColor brownColor];
     
 }
 

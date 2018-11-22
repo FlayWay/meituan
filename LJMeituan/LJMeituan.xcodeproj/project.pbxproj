@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86709DEC21A64DE60087F56A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86709DEB21A64DE60087F56A /* ListViewController.m */; };
+		86709DEF21A6526D0087F56A /* LJSimpleManagerDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 86709DEE21A6526D0087F56A /* LJSimpleManagerDemo.m */; };
+		86709DF321A6569C0087F56A /* LJSimpleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86709DF221A6569C0087F56A /* LJSimpleManager.m */; };
 		86D8BC4421902EA900064494 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D8BC4321902EA900064494 /* AppDelegate.m */; };
 		86D8BC4A21902EA900064494 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86D8BC4821902EA900064494 /* Main.storyboard */; };
 		86D8BC4C21902EAA00064494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86D8BC4B21902EAA00064494 /* Assets.xcassets */; };
@@ -51,6 +54,12 @@
 
 /* Begin PBXFileReference section */
 		4A11ACCB0EC9632561EF3CCE /* Pods-LJMeituan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LJMeituan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LJMeituan/Pods-LJMeituan.debug.xcconfig"; sourceTree = "<group>"; };
+		86709DEA21A64DE60087F56A /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		86709DEB21A64DE60087F56A /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		86709DED21A6526D0087F56A /* LJSimpleManagerDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJSimpleManagerDemo.h; sourceTree = "<group>"; };
+		86709DEE21A6526D0087F56A /* LJSimpleManagerDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJSimpleManagerDemo.m; sourceTree = "<group>"; };
+		86709DF121A6569C0087F56A /* LJSimpleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJSimpleManager.h; sourceTree = "<group>"; };
+		86709DF221A6569C0087F56A /* LJSimpleManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJSimpleManager.m; sourceTree = "<group>"; };
 		86D8BC3F21902EA900064494 /* LJMeituan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJMeituan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D8BC4221902EA900064494 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86D8BC4321902EA900064494 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -162,6 +171,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		86709DE921A64D8D0087F56A /* list */ = {
+			isa = PBXGroup;
+			children = (
+				86709DF021A653250087F56A /* ljSimple */,
+				86709DEA21A64DE60087F56A /* ListViewController.h */,
+				86709DEB21A64DE60087F56A /* ListViewController.m */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		86709DF021A653250087F56A /* ljSimple */ = {
+			isa = PBXGroup;
+			children = (
+				86709DED21A6526D0087F56A /* LJSimpleManagerDemo.h */,
+				86709DEE21A6526D0087F56A /* LJSimpleManagerDemo.m */,
+				86709DF121A6569C0087F56A /* LJSimpleManager.h */,
+				86709DF221A6569C0087F56A /* LJSimpleManager.m */,
+			);
+			path = ljSimple;
+			sourceTree = "<group>";
+		};
 		86D8BC3621902EA900064494 = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				86D8BC802191388000064494 /* View */,
+				86709DE921A64D8D0087F56A /* list */,
 				86D8BC5E2190350100064494 /* HomeViewController.h */,
 				86D8BC5F2190350100064494 /* HomeViewController.m */,
 				86D8BC7D2191362800064494 /* MenuViewController.h */,
@@ -455,8 +486,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86709DEF21A6526D0087F56A /* LJSimpleManagerDemo.m in Sources */,
 				86D8BC9E219144F400064494 /* UIColor+CZAddition.m in Sources */,
 				86D8BC5221902EAA00064494 /* main.m in Sources */,
+				86709DF321A6569C0087F56A /* LJSimpleManager.m in Sources */,
 				86D8BCAC2191459500064494 /* UIView+Extension.m in Sources */,
 				86D8BCA5219144F400064494 /* NSObject+CZRuntime.m in Sources */,
 				86D8BCA4219144F400064494 /* UIButton+CZAddition.m in Sources */,
@@ -485,6 +518,7 @@
 				86D8BC5A21902F3800064494 /* LJMainViewController.m in Sources */,
 				86D8BCB421918EB400064494 /* NSString+SYExtension.m in Sources */,
 				86D8BCB721919ADB00064494 /* UIColor+FlatUI.m in Sources */,
+				86709DEC21A64DE60087F56A /* ListViewController.m in Sources */,
 				86D8BCA9219144F400064494 /* NSArray+Log.m in Sources */,
 				86D8BCA8219144F400064494 /* NSAttributedString+CZAdditon.m in Sources */,
 				86D8BC752190589F00064494 /* LJTabButton.m in Sources */,
@@ -634,7 +668,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 49HJAMKD2L;
+				DEVELOPMENT_TEAM = ZJ7D633DA8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/ljkj/Documents/PrefixHeader.pch;
 				INFOPLIST_FILE = LJMeituan/Info.plist;
@@ -643,7 +677,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = af.LJMeituan;
+				PRODUCT_BUNDLE_IDENTIFIER = af.LJMei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -655,7 +689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 49HJAMKD2L;
+				DEVELOPMENT_TEAM = ZJ7D633DA8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/ljkj/Documents/PrefixHeader.pch;
 				INFOPLIST_FILE = LJMeituan/Info.plist;
@@ -664,7 +698,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = af.LJMeituan;
+				PRODUCT_BUNDLE_IDENTIFIER = af.LJMei;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

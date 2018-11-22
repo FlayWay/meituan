@@ -9,7 +9,9 @@
 #import "TableViewController.h"
 
 static NSString *cellId = @"cellid";
-@interface TableViewController ()<UIGestureRecognizerDelegate>
+@interface TableViewController ()<UIGestureRecognizerDelegate,UIGestureRecognizerDelegate>
+
+@property (nonatomic, assign) CGFloat scrollViewoffsetY;
 
 @end
 
@@ -20,10 +22,58 @@ static NSString *cellId = @"cellid";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.scrollEnabled = NO;
     
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGesture:)];
-    pan.delegate = self;
-    [self.tableView addGestureRecognizer:pan];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isScrollEnable:) name:@"isCanscrollable" object:nil];
+    
+    UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(gestureActoin:)];
+    gesture.delegate = self;
+    [self.tableView addGestureRecognizer:gesture];
+    
+}
+
+- (void)gestureActoin:(UIPanGestureRecognizer *)pangesture {
+    
+    if (pangesture.state == UIGestureRecognizerStateBegan) {
+        
+        CGFloat currentY = [pangesture translationInView:self.tableView].y;
+NSLog(@"currentY==%f==%f==%f",currentY,self.scrollViewoffsetY,self.tableView.contentOffset.y);
+        // 大于0 向下滑动
+        if (currentY >= 0) {
+            if (self.scrollViewoffsetY >= 150) {
+                if (self.tableView.contentOffset.y >= 0) {
+                    self.tableView.scrollEnabled = YES;
+                }else {
+                    self.tableView.scrollEnabled = NO;
+                }
+            }else {
+                self.tableView.scrollEnabled = YES;
+            }
+        }else {
+            if (self.scrollViewoffsetY >= 150) {
+                self.tableView.scrollEnabled = YES;
+            }else {
+                self.tableView.scrollEnabled = NO;
+            }
+        }
+    }
+    
+}
+
+- (void)isScrollEnable:(NSNotification *)noti {
+    
+    CGFloat offsetY = [noti.userInfo[@"offsetY"] floatValue];
+    self.scrollViewoffsetY = offsetY;
+    NSLog(@"offsetY========%f",offsetY);
+    if (offsetY>= 150) {
+        
+        self.tableView.scrollEnabled = YES;
+        
+    }else {
+        
+        self.tableView.scrollEnabled = NO;
+    }
+    
 }
 
 
@@ -40,100 +90,24 @@ static NSString *cellId = @"cellid";
 }
 
 
-
-#pragma mark --- 手势事件
-- (void)panGesture:(UIPanGestureRecognizer *)pangesture {
-
-    // 只有row = 0 显示到顶部才可滚动
-    CGFloat contentY = self.tableView.contentOffset.y;
-    
-//    CGFloat current1Y = [pangesture translationInView:self.tableView].y;
-//    CGFloat current1X = [pangesture translationInView:self.tableView].x;
-    if (contentY>0) {
-//        if (current1Y < 0 && current1X > 0) {
-//            switch (pangesture.state) {
-//                case UIGestureRecognizerStateChanged:
-//                {
-//                    [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationScrollUp object:@{@"tableScrollOffY":@(current1Y)}];
-//
-//                    if (current1Y > 80) {
-//                        self.tableView.scrollEnabled = YES;
-//                    }else {
-//                        self.tableView.scrollEnabled = NO;
-//
-//                    }
-//                }
-//                    break;
-//                    
-//            }
-//        }
-        return;
-    }
-    switch (pangesture.state) {
-        case UIGestureRecognizerStateBegan:
-        {
-
-        }
-            break;
-        case UIGestureRecognizerStateChanged:
-        {
-            CGFloat currentY = [pangesture translationInView:self.tableView].y;
-            CGFloat currentX = [pangesture translationInView:self.tableView].x;
-            NSLog(@"currindeY=====%f===currentX==%f",currentY,currentX);
-            //判断如果currenty>0，currentX<0; 向下滑动
-            if (currentY > 0 && currentX < 0) {
-
-                [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationScrollDown object:@{@"tableScrollOffY":@(currentY)}];
-            }
-            // 向上滑动 判断商品 评价 商家 有没有滑动到顶部 否则 tableView不可滚动
-           
-            
-        }
-            break;
-        case UIGestureRecognizerStateCancelled:
-        {
-
-            
-        }
-            break;
-        case UIGestureRecognizerStateEnded:
-        {
-            CGFloat currentY = [pangesture translationInView:self.tableView].y;
-            CGFloat currentX = [pangesture translationInView:self.tableView].x;
-
-            [[NSNotificationCenter defaultCenter] postNotificationName:KNotificationScrollEnd object:@{@"tableScrollOffY":@(currentY)}];
-
-        }
-            break;
-
-        default:
-            break;
-    }
-}
-
-
 #pragma mark --------UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    NSLog(@"%s",__func__);
-    if ([scrollView isKindOfClass:[UITableView class]]) {
-        
-        if (scrollView.contentOffset.y <= 0) {
-            
-            scrollView.bounces = NO;
-            NSLog(@"禁止下拉");
-        }else if(scrollView.contentOffset.y >=0){
-            scrollView.bounces = YES;
-            NSLog(@"允许上拉");
-            
-        }
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//
+////    NSLog(@"%s",__func__);
+//    if ([scrollView isKindOfClass:[UITableView class]]) {
+//
+//        if (scrollView.contentOffset.y <= 0) {
+//            NSLog(@"禁止下拉");
+////            self.tableView.scrollEnabled = NO;
+//
+//        }else if(scrollView.contentOffset.y >=0){
+//            NSLog(@"允许上拉");
+//        }
+//    }
+//}
 
-
-
-#pragma mark 手势 多个手势共存
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    
     return YES;
 }
 

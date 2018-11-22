@@ -11,6 +11,13 @@
 
 @interface LJShopScrollView ()<UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
+/// 最大偏移量
+@property (nonatomic, assign) CGFloat maxOffset_Y;
+/// 是否垂直滑动
+@property (nonatomic, assign) BOOL isVertical;
+/// 子视图View
+@property (nonatomic, strong) UIView *childView;
+
 @end
 
 
@@ -22,7 +29,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.scrollEnabled = NO;
+         _maxOffset_Y = 150;
+        self.contentSize = CGSizeMake(self.width, self.height + _maxOffset_Y);
+//        self.scrollEnabled = NO;
         self.delegate = self;
         // 创建顶部菜单视图 商品,评价,商家
         [self createTopMenuView:vc];
@@ -34,130 +43,65 @@
 - (void)createTopMenuView:(UIViewController *)vc {
     
     //1:顶部高度为_maxOffset_Y，背景透明，可以点击
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.width, 150 + 48 - NavBarHeight)];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.width, _maxOffset_Y + 48 - NavBarHeight)];
     topView.userInteractionEnabled = YES;
     [self addSubview:topView];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dropDownTap:)];
-    tap.delegate = self;
-    [topView addGestureRecognizer:tap];
+    // 添加背景透明事件
+    UIControl *control = [[UIControl alloc]initWithFrame:topView.frame];
+    [control addTarget:self action:@selector(dropDownTap:) forControlEvents:UIControlEventTouchUpInside];
+    [topView addSubview:control];
     
     // 菜单
     CGFloat menuVCY = CGRectGetMaxY(topView.frame);
     ChildViewController *childVC = [[ChildViewController alloc]init];
     childVC.view.frame = CGRectMake(0,menuVCY, self.width, self.height - menuVCY -NavBarHeight);
     [vc addChildViewController:childVC];
+    self.childView = childVC.view;
     [self addSubview:childVC.view];
-    
-    // 添加手势
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panGestureRecognizerAction:)];
-    [self addGestureRecognizer:pan];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollDownAction:) name:KNotificationScrollDown object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollEndAction:) name:KNotificationScrollEnd object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollUpAction:) name:KNotificationScrollUp object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewScrollDown:) name:@"tableViewScrollDown" object:nil];
     
 }
 
 #pragma mark -- 下拉，显示店铺详情
-- (void)dropDownTap:(UITapGestureRecognizer *)tap {
+- (void)dropDownTap:(UIControl *)tap {
     
     if ([self.scrollDelegate respondsToSelector:@selector(ListScrollViewDropDown:)]) {
-
         [self.scrollDelegate ListScrollViewDropDown:self];
     }
+}
+
+#pragma mark --- tableView向下滑动
+- (void)tableViewScrollDown:(NSNotification *)noti {
+
+    self.scrollEnabled = YES;
+    
 }
 
 #pragma mark --------UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    NSLog(@"%s",__func__);
-    
-}
+    CGFloat contentY = scrollView.contentOffset.y;
+    NSLog(@"contentY======%f",contentY);
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"isCanscrollable" object:nil userInfo:@{@"offsetY":@(contentY)}];
     
-    NSLog(@"%s",__func__);
-}
-
-#pragma mark --- 手势事件
-- (void)panGestureRecognizerAction:(UIPanGestureRecognizer *)pan {
-    
-    NSLog(@"%s",__func__);
-    LJShopScrollView *shopScrolView = (LJShopScrollView *)pan.view;
-    switch (pan.state) {
-        case UIGestureRecognizerStateBegan:
-        {
-            
-        }
-            break;
-        case UIGestureRecognizerStateChanged:
-        {
-            CGFloat currentY = [pan translationInView:self.superview].y;
-            NSLog(@"currentY=====%f",currentY);
-            shopScrolView.y = currentY;
-            if ([self.scrollDelegate respondsToSelector:@selector(listScrollViewDidUpScrollView:tableViewOffsetY:)]) {
-                [self.scrollDelegate listScrollViewDidUpScrollView:self tableViewOffsetY:currentY];
-                
-            }
-            
-        }
-            break;
-        case UIGestureRecognizerStateCancelled:
-        {
-            
-        }
-            break;
-        case UIGestureRecognizerStateEnded:
-        {
-
-        }
-            break;
-        default:
-            break;
-    }
-    
-    [pan setTranslation:CGPointZero inView:pan.view];
-    
-
-}
-
-#pragma mark --- 向上滑动通知
-- (void)tableViewScrollUpAction:(NSNotification *)noti {
-    
-    NSDictionary * infoDic = [noti object];
-    NSLog(@"Up====%s====%@",__func__,infoDic[@"tableScrollOffY"]);
-    NSString *offSetY = infoDic[@"tableScrollOffY"];
-    if ([self.scrollDelegate respondsToSelector:@selector(listScrollViewDidUpScrollView:tableViewOffsetY:)]) {
-        [self.scrollDelegate listScrollViewDidUpScrollView:self tableViewOffsetY:[offSetY floatValue]];
-    }
-}
-
-#pragma mark ---- tableView 向下滑动通知
-- (void)tableViewScrollDownAction:(NSNotification *)noti {
-
-    NSDictionary * infoDic = [noti object];
-    NSLog(@"down====%s====%@",__func__,infoDic[@"tableScrollOffY"]);
-    NSString *offSetY = infoDic[@"tableScrollOffY"];
-    if ([self.scrollDelegate respondsToSelector:@selector(listScrollViewDidScrollView:tableViewOffsetY:)]) {
-        [self.scrollDelegate listScrollViewDidScrollView:self tableViewOffsetY:[offSetY floatValue]];
-    }
-}
-
-- (void)tableViewScrollEndAction:(NSNotification *)noti {
-    
-    NSDictionary * infoDic = [noti object];
-    CGFloat offSetY = [infoDic[@"tableScrollOffY"] floatValue];
-    
-    if ([self.scrollDelegate respondsToSelector:@selector(listScrollViewDidEndScrollView:tableViewOffsetY:)]) {
+    // 如果滑动超过100 隐藏
+    if (contentY < -90) {
         
-        [self.scrollDelegate listScrollViewDidEndScrollView:self tableViewOffsetY:offSetY];
+        if ([self.scrollDelegate respondsToSelector:@selector(ListScrollViewDropDown:)]) {
+            [self.scrollDelegate ListScrollViewDropDown:self];
+        }
+    }
+    
+    if (contentY >= _maxOffset_Y-NavBarHeight+48) {
+
+        self.childView.frame = CGRectMake(0,contentY, self.width, UIScreen.mainScreen.bounds.size.height - NavBarHeight);
+        
+    }else {
+        
     }
 }
 
-#pragma mark 手势 多个手势共存
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
-}
 
 @end
